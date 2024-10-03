@@ -1,0 +1,64 @@
+@startuml gestion_magasin
+left to right direction
+
+actor Admin
+
+rectangle gestion_magasin{
+    usecase "consulter les produits" as UC1
+    usecase "ajouter un produit dans le store" as UC2
+    usecase "modifier un produit" as UC3
+    usecase "supprimer produit" as UC4
+    usecase "rechercher produit" as UC5
+    usecase "accepter commande"  as UC6
+    usecase "annuler commande"  as UC7
+
+
+}
+
+
+actor Client
+
+rectangle gestion_magasin{
+    usecase "Afficher  les produits" as UC8
+    usecase "ajouter un produit au panier" as UC9
+    usecase "supprimer un produit du panier" as UC10
+    usecase "valider le panier" as UC11
+    usecase "payer" as UC12
+}
+
+
+usecase "authentification" as Auth
+
+
+UC2 -- (Auth) : <<include>>
+UC3 -- (Auth) : <<include>>
+UC4 -- (Auth) : <<include>>
+UC5 -- (Auth) : <<include>>
+UC6 -- (Auth) : <<include>>
+UC7 -- (Auth) : <<include>>
+UC9 -- (Auth) : <<include>>
+UC10 -- (Auth) : <<include>>
+UC11 -- (Auth) : <<include>>
+UC12 -- (Auth) : <<include>>
+
+
+
+Admin -- UC1
+Admin -- UC2
+Admin -- UC3
+Admin -- UC4
+Admin -- UC5
+Admin -- UC6
+Admin -- UC7
+
+
+Client  -- UC8
+Client  -- UC9
+Client  -- UC10
+Client  -- UC11
+Client  -- UC12
+
+
+
+
+@enduml

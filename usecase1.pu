@@ -1,0 +1,16 @@
+@startuml gestion_magasin
+left to right direction
+
+actor Admin
+
+rectangle gestion_magasin{
+    usecase "consulter les produits" as UC1
+    usecase "ajouter un produit dans le store" as UC2
+    usecase "rechercher produit" as UC3
+}
+
+
+
+Admin -- UC1
+Admin -- UC2
+Admin -- UC3

@@ -1,0 +1,38 @@
+@startuml gestion_magasin
+left to right direction
+
+
+actor Client
+
+rectangle gestion_magasin{
+    usecase "Afficher  les produits" as UC8
+    usecase "ajouter un produit au panier" as UC9
+    usecase "supprimer un produit du panier" as UC10
+    usecase "valider le panier" as UC11
+    usecase "payer" as UC12
+}
+
+
+usecase "authentification" as Auth
+
+
+
+UC9 -- (Auth) : <<include>>
+UC10 -- (Auth) : <<include>>
+UC11 -- (Auth) : <<include>>
+UC12 -- (Auth) : <<include>>
+
+
+
+Client  -- UC8
+Client  -- UC9
+Client  -- UC10
+Client  -- UC11
+Client  -- UC12
+
+
+
+
+
+
+@enduml
